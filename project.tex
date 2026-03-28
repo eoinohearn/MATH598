@@ -1,0 +1,203 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{booktabs}
+% \usepackage{array}
+\usepackage{tabularx}
+\usepackage{times}
+% Load the setspace package
+\usepackage{setspace}
+% Using \doublespacing in the preamble 
+% changes the text to double-line spacing
+\doublespacing
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{conjecture}{Conjecture}
+
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\vproj}{proj}
+
+\title{MATH598: A Review of Evolutionary Graph Theory}
+\author{Eoin O'Hearn}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+% BIG PICTURE
+% How do ideologies spread?
+
+\section{Evolutionary Graph Theory}
+
+The field of Evolutionary Graph Theory first arose with the seminal paper in 2005 titled "Evolutionary Dynamics on Graphs" by Lieberman et al. \cite{liebermanEvolutionaryDynamicsGraphs2005}, but the underlying stochastic structure is based on the work of Moran \cite{moranRandomProcessesGenetics1958} in 1958. Since then, the field has seen a continued surge of interest and extensions into many accompanying fields [CITE].  
+\begin{definition}
+    A population $V$ is a set of $N$ individuals,$\{v_1, \ldots, v_N\}$, along with a fitness mapping $f: V \rightarrow \mathbb{R}$ such that $f_i = f(v_i)$ is the fitness of individual $i$. We say that an individual is a resident if $f_i = 1$ and a mutant otherwise, $f_i \neq 1$.  
+\end{definition}
+
+\begin{definition}
+    An evolutionary graph $G$ is a population $V$ with adjacency matrix $W$ such that $\sum_j w_{ij} = 1 \; \forall \; i$. 
+\end{definition}
+
+As the reader might be able to guess based on the stipulation on the sum of the rows, we can consider evolutionary graphs to be a stochastic process. At each time step, an \emph{update rule} is used to determine which vertices, or individuals, are chosen for birth and death. Thus, each entry $w_{ij}$ in $W$ represents the probability for $v_i$ to replace $v_j$. 
+
+The simplest such update rule, Birth-Death with Birth bias (BD-B), is introduced and used in \cite{liebermanEvolutionaryDynamicsGraphs2005}. This process is further outlined in the following table.  
+\begin{center}
+    \begin{tabularx}{\textwidth}{X X}
+        \hline 
+        Update Rule & Process \\
+        \hline
+        \multirow{3}{*}{Birth-death with Birth bias (BD-B)} & (1) Pick vertex $v_i$ with probability proportional to $f_i$ \\
+         & (2) Pick vertex $v_j$ from neighbors of $v_i$ with probability $w_{ij}$ \\
+         &  (3) $v_i$ replaces $v_j$\\
+    \end{tabularx}
+\end{center}
+
+
+
+We can now begin to consider questions such as "With what probability will a \emph{mutant} with relative fitness $r$ fixate in a population of $N$ individuals?" Importantly, we first consider the case where a single individual $v_m$ is chosen uniformly from the population $V$ to have fitness $f_k = r$. Later on, we will see extensions where more than one individual is chosen to mutate. In those cases, the specific subset that is chosen to be replaced can have a large effect on the fixation probability, but for now we return to the case of a single invader. 
+
+In a \emph{well-mixed} population each vertex is connected to every other vertex. The simplest case, of an undirected graph, gives that $w_{ij} = w_{ji} =  1$ for all $i,j$. This special case is the Moran Process of \cite{moranRandomProcessesGenetics1958} and gives the Moran probability, $\rho_1$, that a mutant with relative fitness $r$ will reach fixation. This probability has been determined to be 
+\begin{equation}
+\rho_1 = \frac{1-1/r}{1-1/r^N}
+\end{equation}  
+
+But what of populations that are not well-mixed? Such is the case of directed graphs, and much of the work in Evolutionary Graph Theory has been focused on computing the fixation probability of graphs with differing structures. 
+
+
+DIFFERENT GRAPH STRUCTURES [STAR, SUPER-STAR, LINE, ETC]
+
+\cite{liebermanEvolutionaryDynamicsGraphs2005} found that for a special subset of graphs, named isothermal, the fixation probability relies solely on the relative fitness of the mutant and not the underlying structure of the graph. We say that a graph is isothermal if the sum of the weights of the edges leaving a vertex is equal to the sum of the weights of the edges entering a vertex, hence isothermal. This gives our first theorem. 
+
+\begin{definition}
+    An evolutionary graph G is isothermal iff
+    \[\sum_j w_{ij} = \sum_j w_{ji} \quad \forall \; v_i\]
+\end{definition}
+
+\begin{theorem}
+    An EG is isothermal iff the fixation probability of a randomly placed mutant is $\rho_1$.
+\end{theorem}
+
+In general, calculating the fixation probability of a mutant given its relative fitness is not an easy thing to do. In fact, for most graphs the calculation complexity is NP hard. Thus, we turn to alternatives to determing the fixation probability, $\rho$. As mentioned before, we can consider the case when more than one individual mutates and so a subset of the population has fitness not equal to one. 
+
+
+\begin{definition}
+    Let $C\subseteq V$ and $r>0$. Then $P_{C}^{(r)}$ is the fixation probability given that all individuals in $C$ have been replaced with mutants with fitness $r$. 
+\end{definition}
+
+\begin{equation}
+    N\cdot \rho = \sum_{i} P_{v_i}
+\end{equation}
+
+\begin{theorem}
+    Let $r=1$ and $C,D$ be disjoint subsets of $V$. Then $P_C + P_D = P_{C\cup D}$
+\end{theorem}
+    
+\begin{theorem}
+    If $r=1$, then $\rho = \frac{1}{N}$ for all graph structures. 
+\end{theorem}
+
+\begin{theorem}
+    Let $C \subseteq V$ and $r>0$. Then 
+    \[P_{C}^{(1)} \leq P_{C}^{(r)}\]
+\end{theorem}
+
+\begin{conjecture}
+    The fixation probability, $\rho$, is monotonic with respect to the mutant's fitness, $r$. 
+\end{conjecture}
+
+
+Mean time to fixation
+
+\begin{theorem}
+    \[t_1 = \sum_{n=1}^{N-1} \frac{(r^N-1)(r^{N-n}-1)(1+r)}{(r^N-1)(r-1)}\]
+\end{theorem}
+
+\begin{theorem}
+    \[t_1 = \sum_{n=1}^{N-1} \frac{(r^{nk}-1)(r^{(N-n)k}-1)(1+r^k)}{(r^{Nk}-1)(r^k-1)}\]
+\end{theorem}
+
+
+
+Alternate update rules
+
+Birth-death
+death-birth
+link Dynamics
+
+
+fitness bias = special cases
+
+
+\newpage
+\section{Games on Graphs}
+Continuing with \cite{shakarianReviewEvolutionaryGraph2012}, we can begin to consider game theoretic extensions of evolutionary graph theory. When considering evolutionary stable strategies in standard evolutionary game theory, the populations are often considered to be well-mixed. We see, however, that considering other population structures leads to different stability results.
+
+Evolutionary stability is a primary focus of evolutionary game theory. A strategy is said to be evolutionary stable if it satisfies two conditions. (1) a population of organisms playing that strategy is resistant to invasion by another strategy and (2) that the strategy is favored by natural selection. (2) is equivalent to saying that the fixation probability, $\rho$, is greater than that of neutral drift, i.e. $\rho > \frac{1}{N}$.
+
+When beginning to examing games on graphs, we first must make a relation between the payoff of the game (P) and the resulting fitness of the organism ($f_i$). This is done with the following equation with parameter $\alpha$. This parameter determines how much influence the payoff of the game has on the fitness of the individual. 
+\[f_i = 1 - \alpha+\alpha\cdot P\]
+
+If $\alpha=1$ then the fitness of the organism is equal to the payoff recieved from playing the game. If, however, $\alpha=0$, then the payoff has no effect on fitness. Most applications consider cases of \emph{weak selection}, i.e. where $\alpha <<1$, so that the game has a minimal, but still apparent, impact on the fitness of the individuals.
+
+We begin like all treaties of game theory, with a discussion on the prisoner's dilemma, shown in its normal form below. Two players are offered the choice, simultaneously and independently, to either defect or cooperate. If they both cooperate, they each earn payoffs of 2. If they both defect, they earn a lesser payoff of 1 each. If player 1 chooses to cooperate and player 2 chooses to defect, then player 2 walks away with 3 and player 1 walks away with nothing. Similarly if player 1 chooses to defect and player 2 chooses to cooperate. 
+
+\begin{center}
+    \begin{tabular}{c | c c }
+     & cooperate & defect \\
+     \hline
+     cooperate & 2,2 & 0,3 \\
+     defect & 3,0 & 1,1 \\
+\end{tabular}
+\end{center}
+
+This game has been studied extensively because of its far-reaching implications in [FIELDS], especially evolutionary biology. Many species exhibit, and often rely upon, cooperation in their social interactions, but how could this have arisen within Darwin's natural selection framework? Why would an indiviudal choose to cooperate and potentially walk away with nothing? It seems that defectors have the stronger strategy as they can always ensure they walk away with a positive outcome.
+
+In fact, in standard game theory this is the conclusion we reach. Both players are playing their best strategy when they are defecting, corresponding with the formal definition of (defect, defect) being a Nash equilibrium. There is no incentive for either individual to cooperate, so how could that strategy have been favored by natural selection? 
+
+The most commonly accepted answer is Hamilton's rule / inclusive fitness. This rule is $rb - c>0$, where $r$ is the relation of an organism to another, $b$ is the benefit, and $c$ is the cost. Thus we have that animals will be expected to cooperate when the benefit outweighs the cost, after accounting for the relationship. 
+
+We can use evolutionary graph theory to divise another rule where organisms are expected to cooperate. 
+
+
+
+\begin{center}
+    \begin{tabular}{c | c c }
+     & cooperate & defect \\
+     \hline
+     cooperate & b-c & -c \\
+     defect & b & 0 \\
+\end{tabular}
+\end{center}
+
+Where $c$ is the cost of cooperating and $b$ is the benefit. \cite{ohtsukiSimpleRuleEvolution2006} found that the condition $b/c > k$ is necessary for the fixation of cooperation, where $k$ is the average number of neighbors. 
+
+ 
+
+
+Considering a generic two-player two strategy game, this equates to $b < d$. 
+
+\begin{center}
+    \begin{tabular}{c | c c }
+     & mutant & resident \\
+     \hline
+     mutant & a & b \\
+     resident & c & d \\
+\end{tabular}
+\end{center}
+
+\cite{tarnitaStrategySelectionStructured2009} found that a mutant strategy is favored over the resident strategy iff $\sigma a + b > c + \sigma d$, with parameter $\sigma$. 
+
+
+\newpage
+\bibliographystyle{nature}
+\bibliography{EvolutionaryGraphTheory}
+
+
+\end{document}
