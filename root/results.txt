@@ -1,0 +1,11 @@
+p, k, b/c, result
+0.004,3.8847/3,extinct
+0.004,4.0567/3,extinct
+0.004,3.9727/3,extinct
+0.004,3.8927/3,inconclusive
+0.004,4.0767/3,extinct
+0.004,3.9727/3,inconclusive
+0.004,3.9847/3,extinct
+0.004,3.8727/3,inconclusive
+0.004,3.9527/3,extinct
+0.004,3.8247/3,extinct
