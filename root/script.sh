@@ -14,5 +14,4 @@
 
 module load python/python3/3.11.7
 cd /home/edohearn/MATH598/
-.venv/Scripts/activate
-python /home/edohearn/MATH598/root/main.py
+python /home/edohearn/MATH598/root/testing.py
