@@ -8,7 +8,7 @@ N = 100
 # k is about equal to Np+2
 
 # p_values = [2/N, 4/N, 6/N, 8/N, 10/N]
-P = 1/N
+P = 4/N
 benefit = float(sys.argv[1])
 
 # RATIO = (5,1)
