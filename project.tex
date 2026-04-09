@@ -47,30 +47,29 @@ The field of Evolutionary Graph Theory first arose with the seminal paper in 200
 
 As the reader might be able to guess based on the stipulation on the sum of the rows, we can consider evolutionary graphs to be a stochastic process. At each time step, an \emph{update rule} is used to determine which vertices, or individuals, are chosen for birth and death. The simplest such update rule, Birth-Death with Birth bias (BD-B), is introduced and used in \cite{liebermanEvolutionaryDynamicsGraphs2005}. In this update rule, one first picks vertex $v_i$ with probability proportional to $f_i$. Then vertex $v_j$ is chosen from the neighbors of $v_i$ with probability $w_{ij}$ from the adjacency matrix. Lastly, $v_i$ replaces $v_j$ so that $v_j$ is now identical to $v_i$, but still a separate node, or individual. 
 
-This is, however, just one such update rule that can be used when studying evolutionary graphs. There exists three main families of update rules. BD-B is part oftThe Invasion Process family (IV), where the first node chosen replaces the second. The reverse, where the second node chosen replaces the first and so $v_j$ would replace $v_i$, constitutes the aptly named Voter model family (VM). The last family focuses on choosing edges rather than nodes, and so is named Link Dynamics (LD). In this family of update rules and edge is first selected between nodes $v_i$ and $v_j$. Then, one node is chosen to replace the other depending on what bias rule is being used. 
+This is, however, just one such update rule that can be used when studying evolutionary graphs. There exists three main families of update rules. BD-B is part of the Invasion Process family (IV), where the first node chosen replaces the second. The reverse, where the second node chosen replaces the first and so $v_j$ would replace $v_i$, constitutes the aptly named Voter model family (VM). The last family focuses on choosing edges rather than nodes, and so is named Link Dynamics (LD). In this family of update rules and edge is first selected between nodes $v_i$ and $v_j$. Then, one node is chosen to replace the other depending on what bias rule is being used. 
 
 Reviewing the first update rule, BD-B, the first node is chosen with probability proportional to its fitness, but the fitness of the node chosen to 'die' is not considered. There exists a fitness bias on the node chosen to reproduce, hence a \emph{Birth} bias. But we could easily choose to instead consider put the bias on the node chosen to die using a probability distribution inversely proportional to its fitness, where a low fitness would increase the probability of being chosen for death. 
 
 
-This process is further outlined in the following table.  
-\begin{center}
-    \begin{tabularx}{\textwidth}{l X}
-        \hline 
-        Bias Rule & Process \\
+The possible biases are further outlined in Table \ref{bias-table} for the Birth-death update rule, but are analagous for the other families, with one exception. When using a Link Dynamic update rule, it is possible to have an Imitation bias such that whichever node of the selected edge has the higher fitness is chosen to reproduce.    
+
+\begin{table}
+    \centering
+    \caption{Possible biases with Birth-death update rule.}
+    \label{bias-table}
+    \begin{tabularx}{\textwidth}{c | X}
         \hline
-        \multirow{3}{*}{Birth-death with Birth bias (BD-B)} & (1) Pick vertex $v_i$ with probability proportional to $f_i$ \\
-         & (2) Pick vertex $v_j$ from neighbors of $v_i$ with probability $w_{ij}$ \\
-         &  (3) $v_i$ replaces $v_j$\\
-          & \\
-        \multirow{3}{*}{Death-birth with Death bias (BD-B)} & (1) Pick vertex $v_i$ with probability proportional to $f_i$ \\
-         & (2) Pick vertex $v_j$ from neighbors of $v_i$ with probability $w_{ij}$ \\
-         &  (3) $v_j$ replaces $v_i$\\
+        Bias & Process \\
+        \hline \hline
+        Unbiased and undirected & Pick $v_i$ and $v_j$ with uniform probability \\
+        Directed & Pick vertex $v_j$ with probability proportional to outgoing edges of $v_i$ \\
+        Birth-bias & Pick vertex $v_i$ probability proportional to $f_i$ \\
+        Death-bias & Pick vertex $v_j$ probability proportional to $f^{-1}_i$ \\
     \end{tabularx}
-\end{center}
+\end{table}
 
-
-
-We can now begin to consider questions such as "With what probability will a \emph{mutant} with relative fitness $r$ fixate in a population of $N$ individuals?" Importantly, we first consider the case where a single individual $v_m$ is chosen uniformly from the population $V$ to have fitness $f_k = r$. Later on, we will see extensions where more than one individual is chosen to mutate. In those cases, the specific subset that is chosen to be replaced can have a large effect on the fixation probability, but for now we return to the case of a single invader. 
+Now that we have defined the components of an evolutionary graph and have defined an update rule, we can now begin to consider questions such as "With what probability will a \emph{mutant} with relative fitness $r$ fixate in a population of $N$ individuals?" We first consider the case where a single individual $v_m$ is chosen uniformly from the population $V$ to have fitness $f_k = r$. Later on, we will see extensions where more than one individual is chosen to mutate. In those cases, the specific subset that is chosen to be replaced can have a large effect on the fixation probability, but for now we return to the case of a single invader. 
 
 In a \emph{well-mixed} population each vertex is connected to every other vertex. The simplest case, of an undirected graph, gives that $w_{ij} = w_{ji} =  1$ for all $i,j$. This special case is the Moran Process of \cite{moranRandomProcessesGenetics1958} and gives the Moran probability, $\rho_1$, that a mutant with relative fitness $r$ will reach fixation. This probability has been determined to be 
 \begin{equation}
