@@ -1,3 +1,8 @@
 1000000 is taking forever
 
 1000 takes ~3-4 min, but doesn't have enough runs to reach fixation/make a difference between b/c values
+2.1 = GoG2
+2.2 = GoG3
+2.3 = GoG4
+
+10000 + 3.0 = GoG5
