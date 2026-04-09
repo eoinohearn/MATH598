@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=Games_on_Graphs_ArrayTry
+#SBATCH --job-name=Games_on_Graphs_4
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=edohearn@crimson.ua.edu
 #SBATCH -n 1 #tasks

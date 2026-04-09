@@ -18,7 +18,7 @@ benefit = float(sys.argv[1])
 print("p, k, b/c, n, result")
 
 
-for _ in range(1000):
+for _ in range(100000):
     G = EGraph(N,P, benefit, 1)
     n=0
     while(True):
