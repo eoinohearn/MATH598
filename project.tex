@@ -36,7 +36,7 @@
 
 \section{Evolutionary Graph Theory}
 
-The field of Evolutionary Graph Theory first arose with the seminal paper in 2005 titled "Evolutionary Dynamics on Graphs" by Lieberman et al. \cite{liebermanEvolutionaryDynamicsGraphs2005}, but the underlying stochastic structure is based on the work of Moran \cite{moranRandomProcessesGenetics1958} in 1958. Since then, the field has seen a continued surge of interest and extensions into many accompanying fields [CITE].  
+The field of Evolutionary Graph Theory first arose with the seminal paper in 2005 titled "Evolutionary Dynamics on Graphs" by Lieberman et al.\cite{liebermanEvolutionaryDynamicsGraphs2005}, but the underlying stochastic structure is based on the work of Moran\cite{moranRandomProcessesGenetics1958} in 1958. Since then, the field has seen a continued surge of interest and extensions into many accompanying fields [CITE].  
 \begin{definition}
     A population $V$ is a set of $N$ individuals,$\{v_1, \ldots, v_N\}$, along with a fitness mapping $f: V \rightarrow \mathbb{R}$ such that $f_i = f(v_i)$ is the fitness of individual $i$. We say that an individual is a resident if $f_i = 1$ and a mutant otherwise, $f_i \neq 1$.  
 \end{definition}
@@ -45,17 +45,26 @@ The field of Evolutionary Graph Theory first arose with the seminal paper in 200
     An evolutionary graph $G$ is a population $V$ with adjacency matrix $W$ such that $\sum_j w_{ij} = 1 \; \forall \; i$. 
 \end{definition}
 
-As the reader might be able to guess based on the stipulation on the sum of the rows, we can consider evolutionary graphs to be a stochastic process. At each time step, an \emph{update rule} is used to determine which vertices, or individuals, are chosen for birth and death. Thus, each entry $w_{ij}$ in $W$ represents the probability for $v_i$ to replace $v_j$. 
+As the reader might be able to guess based on the stipulation on the sum of the rows, we can consider evolutionary graphs to be a stochastic process. At each time step, an \emph{update rule} is used to determine which vertices, or individuals, are chosen for birth and death. The simplest such update rule, Birth-Death with Birth bias (BD-B), is introduced and used in \cite{liebermanEvolutionaryDynamicsGraphs2005}. In this update rule, one first picks vertex $v_i$ with probability proportional to $f_i$. Then vertex $v_j$ is chosen from the neighbors of $v_i$ with probability $w_{ij}$ from the adjacency matrix. Lastly, $v_i$ replaces $v_j$ so that $v_j$ is now identical to $v_i$, but still a separate node, or individual. 
 
-The simplest such update rule, Birth-Death with Birth bias (BD-B), is introduced and used in \cite{liebermanEvolutionaryDynamicsGraphs2005}. This process is further outlined in the following table.  
+This is, however, just one such update rule that can be used when studying evolutionary graphs. There exists three main families of update rules. BD-B is part oftThe Invasion Process family (IV), where the first node chosen replaces the second. The reverse, where the second node chosen replaces the first and so $v_j$ would replace $v_i$, constitutes the aptly named Voter model family (VM). The last family focuses on choosing edges rather than nodes, and so is named Link Dynamics (LD). In this family of update rules and edge is first selected between nodes $v_i$ and $v_j$. Then, one node is chosen to replace the other depending on what bias rule is being used. 
+
+Reviewing the first update rule, BD-B, the first node is chosen with probability proportional to its fitness, but the fitness of the node chosen to 'die' is not considered. There exists a fitness bias on the node chosen to reproduce, hence a \emph{Birth} bias. But we could easily choose to instead consider put the bias on the node chosen to die using a probability distribution inversely proportional to its fitness, where a low fitness would increase the probability of being chosen for death. 
+
+
+This process is further outlined in the following table.  
 \begin{center}
-    \begin{tabularx}{\textwidth}{X X}
+    \begin{tabularx}{\textwidth}{l X}
         \hline 
-        Update Rule & Process \\
+        Bias Rule & Process \\
         \hline
         \multirow{3}{*}{Birth-death with Birth bias (BD-B)} & (1) Pick vertex $v_i$ with probability proportional to $f_i$ \\
          & (2) Pick vertex $v_j$ from neighbors of $v_i$ with probability $w_{ij}$ \\
          &  (3) $v_i$ replaces $v_j$\\
+          & \\
+        \multirow{3}{*}{Death-birth with Death bias (BD-B)} & (1) Pick vertex $v_i$ with probability proportional to $f_i$ \\
+         & (2) Pick vertex $v_j$ from neighbors of $v_i$ with probability $w_{ij}$ \\
+         &  (3) $v_j$ replaces $v_i$\\
     \end{tabularx}
 \end{center}
 
