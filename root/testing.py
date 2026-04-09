@@ -15,7 +15,7 @@ RATIO = (2.1,1)
 print("p, k, b/c, n, result")
 
 
-for _ in range(1000000):
+for _ in range(1000):
     G = EGraph(N,P, RATIO[0], RATIO[1])
     length=EPOCH
     for n in range(EPOCH):
