@@ -67,6 +67,28 @@ class EGraph():
 
         for key in self.graph.nodes[death].keys():
             self.graph.nodes[death][key] = self.graph.nodes[selected_node][key]
+
+    def Death_birth(self):
+        
+
+        death = np.random.choice(self.graph.nodes)
+        fitness_values = []
+        probs = []
+
+        for node in self.graph.nodes:
+            if node in self.graph.adj[death]:
+                fitness_values.append(self.graph.nodes[node]['fitness'])
+            else:
+                fitness_values.append(0)
+
+
+        sum_fitness = sum(fitness_values)
+        probs = [f/sum_fitness for f in fitness_values]
+
+        selected_node = np.random.choice(self.graph.nodes, p=probs)
+
+        for key in self.graph.nodes[death].keys():
+            self.graph.nodes[death][key] = self.graph.nodes[selected_node][key]
         
 
     def get_stats(self):

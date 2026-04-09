@@ -24,7 +24,7 @@ for _ in range(1000):
     while(True):
         n+=1
         G.calculate_fitness()
-        G.update_rule()
+        G.Death_birth()
         x,y = G.get_stats()
         if x == 0:
             break
