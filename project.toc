@@ -1,2 +1,3 @@
-\contentsline {section}{\numberline {1}Evolutionary Graph Theory}{3}{}%
-\contentsline {section}{\numberline {2}Games on Graphs}{8}{}%
+\contentsline {section}{\numberline {1}Introduction}{3}{}%
+\contentsline {section}{\numberline {2}Evolutionary Graph Theory}{4}{}%
+\contentsline {section}{\numberline {3}Games on Graphs}{9}{}%

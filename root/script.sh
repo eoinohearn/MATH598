@@ -7,7 +7,7 @@
 #SBATCH -c 1 #number of cores per task
 #SBATCH --array 0-8
 
-#SBATCH -o Output/output_GoG_4a/%a.txt
+#SBATCH -o Output/output_GoG_4/%a.txt
 #SBATCH -p main
 #SBATCH --qos main
 #SBATCH --mem=20G
