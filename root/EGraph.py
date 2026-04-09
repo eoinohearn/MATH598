@@ -60,10 +60,10 @@ class EGraph():
         probs = [f/sum_fitness for f in fitness_values]
 
 
-        selected_node = np.random.choice(self.graph.nodes, p=probs)
+        death = np.random.choice(self.graph.nodes, p=probs)
 
 
-        death = np.random.choice(self.graph.nodes, p=self.W[selected_node])
+        selected_node = np.random.choice(self.graph.nodes, p=self.W[death])
 
         for key in self.graph.nodes[death].keys():
             self.graph.nodes[death][key] = self.graph.nodes[selected_node][key]

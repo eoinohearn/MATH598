@@ -5,7 +5,7 @@
 #SBATCH -n 1 #tasks
 #SBATCH -N 1 #nodes
 #SBATCH -c 1 #number of cores per task
-#SBATCH --array 0-8
+#SBATCH --array 0-9
 
 #SBATCH -o Output/output_GoG_4_%a.txt
 #SBATCH -p main
