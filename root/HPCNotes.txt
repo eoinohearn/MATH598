@@ -13,3 +13,5 @@
 Array worked and reached fixation! once I did DB jaja
 
 going to run k=4 with 100,000 trial runs overnight 4/8 (should take about 5-6 hrs each)
+    Went well, but it seems that the benefit step might night be large enough to get a clear pattern
+    Going to try with large steps (0.5; 2.0-6.0) and 1000 runs
