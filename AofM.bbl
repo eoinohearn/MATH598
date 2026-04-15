@@ -1,0 +1,53 @@
+\begin{thebibliography}{}
+
+\bibitem[Erdös and Rényi, 1959]{erddsRandomGraphs1959}
+Erdös, P. and Rényi, A. (1959).
+\newblock On random graphs {{I}}.
+\newblock {\em Publ. math. debrecen}, 6(290--297):18.
+
+\bibitem[Hamilton, 1964]{hamiltonGeneticalEvolutionSocial1964}
+Hamilton, W.~D. (1964).
+\newblock The genetical evolution of social behaviour. {{I}}.
+\newblock {\em Journal of Theoretical Biology}, 7(1):1--16.
+
+\bibitem[High-stakes, 2026]{UnderstandingEvolution}
+High-stakes (2026).
+\newblock High-stakes rock-paper-scissors: These lizards are all in on an
+  evolutionary game.
+
+\bibitem[Lieberman et~al., 2005]{liebermanEvolutionaryDynamicsGraphs2005}
+Lieberman, E., Hauert, C., and Nowak, M.~A. (2005).
+\newblock Evolutionary dynamics on graphs.
+\newblock {\em Nature}, 433(7023):312--316.
+
+\bibitem[Moran, 1958]{moranRandomProcessesGenetics1958}
+Moran, P. a.~P. (1958).
+\newblock Random processes in genetics.
+\newblock {\em Mathematical Proceedings of the Cambridge Philosophical
+  Society}, 54(1):60--71.
+
+\bibitem[Ohtsuki et~al., 2006]{ohtsukiSimpleRuleEvolution2006}
+Ohtsuki, H., Hauert, C., Lieberman, E., and Nowak, M.~A. (2006).
+\newblock A simple rule for the evolution of cooperation on graphs and social
+  networks.
+\newblock {\em Nature}, 441(7092):502--505.
+
+\bibitem[Shakarian et~al., 2012]{shakarianReviewEvolutionaryGraph2012}
+Shakarian, P., Roos, P., and Johnson, A. (2012).
+\newblock A review of evolutionary graph theory with applications to game
+  theory.
+\newblock {\em Biosystems}, 107(2):66--80.
+
+\bibitem[Sinervo and Lively, 1996]{sinervoRockPaperScissors1996}
+Sinervo, B. and Lively, C.~M. (1996).
+\newblock The rock–paper–scissors game and the evolution of alternative
+  male strategies.
+\newblock {\em Nature}, 380(6571):240--243.
+
+\bibitem[Voelkl and Kasper, ]{voelklSocialStructurePrimate2009}
+Voelkl, B. and Kasper, C.
+\newblock Social structure of primate interaction networks facilitates the
+  emergence of cooperation.
+\newblock {\em Biology Letters}, 5(4):462--464.
+
+\end{thebibliography}

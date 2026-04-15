@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+\usepackage{subfiles}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{booktabs}
+% \usepackage{array}
+\usepackage{tabularx}
+\usepackage{fontspec}
+\setmainfont{Average-Regular}
+\usepackage{subcaption}
+\usepackage[font=small, labelfont=bf]{caption}
+\usepackage{makecell}
+\usepackage{changepage}
+
+% \usepackage{times}
+% Load the setspace package
+% \usepackage{setspace}
+% % Using \doublespacing in the preamble 
+% % changes the text to double-line spacing
+% \doublespacing
+
+
+% \newcommand{\subfiletitle}[1]{
+% \begin{titlepage}
+%     \centering
+%     \vspace*{\fill}
+%     {\LARGE #1\par}
+%     \vfill
+% \end{titlepage}
+% }
+
+\pagenumbering{arabic}
+\usepackage{etoolbox}
+\AtBeginDocument{\setcounter{page}{1}}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{conjecture}{Conjecture}
+
+
+% \usepackage{letltxmacro}
+% \usepackage{etoolbox}
+% \AtBeginEnvironment{theorem}{\begin{adjustwidth}{1cm}{1cm}}
+% \AtEndEnvironment{theorem}{\end{adjustwidth}}
+
+% \newtcolorbox{theorembox}{
+%   colback=white,
+%   colframe=black,
+%   width=0.85\textwidth,
+%   center,
+%   boxrule=0.5pt
+% }
+
+
+\usepackage{sectsty}
+\sectionfont{\centering}
+
+
+\usepackage[top=1.5in, bottom = 1.5in, left = 1.4in, right = 1.4in]{geometry}
+% \usepackage[margin=1.5in]{geometry}
+
+\linespread{1.3}
+\usepackage{tocloft}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+
+% \setcounter{secnumdepth}{0}
+\title{Anthology of Mind}
+\author{Eoin O'Hearn}
+\date{}
+
+\begin{document}
+\maketitle
+\clearpage
+\tableofcontents
+\clearpage
+
+% \addcontentsline{toc}{section}{Acknowledgements}
+\section{Acknowledgements}
+I want to first thank the many professors that influenced and guided either myself or the project over the last year: Dr. Espy-Brown, Dr. Nguyen, Dr. Earley, Dr. Lam, Dr. Tosun, Dr. Galbraith, Dr. Dewar, Dr. Richards, Dr. Alter, Dr. Melkonyan, and Prof. Ford. I am extrememly grateful to them for sharing  part of their individual wisdom and specializations. 
+
+I would also like to thank the artists whose work appears here: Cade Hopkins, Jack Arnold, Ella Frech, Caroline Gregory, and Corinne Benefield. Their work appears in the following order,
+
+\begin{center}
+    \begin{tabular}{c}
+        "Me and My World" by Cade Hopkins \\
+        "Her Flight" by Jack Arnold \\
+        "Return Pattern" by Ella Frech \\
+        "Cerberus Fantail" by Caroline Gregory \\
+        "Cedar Sunburst" by Corinne Benefield \\
+    \end{tabular}
+\end{center}
+
+This work would not be in nearly a similar condition without the feedback from my most trusted editors. Thank you to Diane O'Hearn, Serena Jefferson, and Claire Kennedy. 
+\newpage
+
+% \addcontentsline{toc}{section}{Foreword}
+\subfile{foreword}
+\newpage
+
+% \begin{center}
+%     \vspace*{\fill}
+%     \begin{large}
+%         Evolution of Mind
+%     \end{large}
+%     \vfill
+% \end{center}
+% \newpage
+
+% \setcounter{section}{2}
+% \addcontentsline{toc}{section}{Evolution of Mind}
+\subfile{EvolutionofMind}
+\newpage
+
+% \setcounter{section}{3}
+% \addcontentsline{toc}{section}{Evolutionary Graph Theory}
+\subfile{project}
+
+\end{document}

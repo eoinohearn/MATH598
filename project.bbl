@@ -1,23 +1,47 @@
 \begin{thebibliography}{1}
 
+\bibitem{erddsRandomGraphs1959}
+P.~ERDdS and A.~R\&wi.
+\newblock On random graphs {{I}}.
+\newblock 6(290--297):18.
+
+\bibitem{hamiltonGeneticalEvolutionSocial1964}
+W.~D. Hamilton.
+\newblock The genetical evolution of social behaviour. {{I}}.
+\newblock 7(1):1--16.
+
 \bibitem{liebermanEvolutionaryDynamicsGraphs2005}
-Lieberman, E., Hauert, C., and Nowak, M.~A.
-\newblock { \bf 433}(7023), 312--316.
+Erez Lieberman, Christoph Hauert, and Martin~A. Nowak.
+\newblock Evolutionary dynamics on graphs.
+\newblock 433(7023):312--316.
 
 \bibitem{moranRandomProcessesGenetics1958}
-Moran, P. a.~P.
-\newblock { \bf 54}(1), 60--71.
-
-\bibitem{shakarianReviewEvolutionaryGraph2012}
-Shakarian, P., Roos, P., and Johnson, A.
-\newblock { \bf 107}(2), 66--80.
+P.~a.~P. Moran.
+\newblock Random processes in genetics.
+\newblock 54(1):60--71.
 
 \bibitem{ohtsukiSimpleRuleEvolution2006}
-Ohtsuki, H., Hauert, C., Lieberman, E., and Nowak, M.~A.
-\newblock { \bf 441}(7092), 502--505.
+Hisashi Ohtsuki, Christoph Hauert, Erez Lieberman, and Martin~A. Nowak.
+\newblock A simple rule for the evolution of cooperation on graphs and social
+  networks.
+\newblock 441(7092):502--505.
 
-\bibitem{tarnitaStrategySelectionStructured2009}
-Tarnita, C.~E., Ohtsuki, H., Antal, T., Fu, F., and Nowak, M.~A.
-\newblock { \bf 259}(3), 570--581.
+\bibitem{shakarianReviewEvolutionaryGraph2012}
+Paulo Shakarian, Patrick Roos, and Anthony Johnson.
+\newblock A review of evolutionary graph theory with applications to game
+  theory.
+\newblock 107(2):66--80.
+
+\bibitem{sinervoRockPaperScissors1996}
+B.~Sinervo and C.~M. Lively.
+\newblock The rock–paper–scissors game and the evolution of alternative
+  male strategies.
+\newblock 380(6571):240--243.
+
+\bibitem{voelklSocialStructurePrimate2009}
+Bernhard Voelkl and Claudia Kasper.
+\newblock Social structure of primate interaction networks facilitates the
+  emergence of cooperation.
+\newblock 5(4):462--464.
 
 \end{thebibliography}
